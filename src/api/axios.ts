@@ -5,10 +5,18 @@ export async function getFileList(){
     return await axios.get(`${serverURL}/upload}`);
 }
 
-export async function uploadFile(){
-
+export async function getFile(id:string){
+    return await axios({
+        url: `serverURL/${id}`, //url,
+        method: 'GET',
+        responseType: 'blob'
+    });
 }
 
-export async function downloadFile(){
-
+export async function uploadFile(formData:FormData){
+    return await axios.post('upload_file', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
 }
