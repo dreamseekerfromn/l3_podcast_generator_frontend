@@ -28,9 +28,21 @@ export default function Transfer(){
     }
 
     const Result = ({status}: {status:string}) =>{
-        if(status === 'success'){}
-        else if(status === 'fail'){}
-        else if(status === 'uploading'){}
+        if(status === 'success'){
+            return(<p>
+                    File uploaded
+                </p>)
+        }
+        else if(status === 'fail'){
+            return(<p>
+                File upload failed
+            </p>)
+        }
+        else if(status === 'uploading'){
+            <p>
+                uploading selected file
+            </p>
+        }
         else {
             return null;
         }
@@ -55,7 +67,7 @@ export default function Transfer(){
                     <button onClick={handleUpload}>submit</button>
                 </div>)}
             </form>
-            
+            <Result status={status} />
         </div>
     )
 }
