@@ -7,16 +7,18 @@ export async function getFileList(){
 
 export async function getFile(id:string){
     return await axios({
-        url: `serverURL/${id}`, //url,
+        url: `${serverURL}/${id}`, //url,
         method: 'GET',
         responseType: 'blob'
     });
 }
 
-export async function uploadFile(formData:FormData){
+export async function uploadFile(id:string, formData:FormData){
     return await axios.post('upload_file', formData, {
         headers: {
             'Content-Type': 'multipart/form-data'
-        }
+        },
+        url: `${serverURL}/upload/${id}`,
+        responseType:'blob'
     });
 }
