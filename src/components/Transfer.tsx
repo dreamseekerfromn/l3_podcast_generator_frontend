@@ -17,7 +17,7 @@ export default function Transfer(){
 
             try{
                 //axios
-                await uploadFile(formData)
+                await uploadFile(file.name, formData)
 
                 setStatus('success');
             } catch(err){
