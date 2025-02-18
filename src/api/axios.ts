@@ -14,11 +14,17 @@ export async function getFile(id:string){
 }
 
 export async function uploadFile(id:string, formData:FormData){
-    return await axios.post('upload_file', formData, {
+    return await axios.post(`${serverURL}/upload/${id}`, formData, {
         headers: {
             'Content-Type': 'multipart/form-data'
         },
-        url: `${serverURL}/upload/${id}`,
         responseType:'blob'
     });
+}
+
+export async function uploadText(text:string){
+    return await axios.post(`${serverURL}/`, text, {headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+    }})
 }
