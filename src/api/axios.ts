@@ -23,7 +23,7 @@ export async function uploadFile(id:string, formData:FormData){
 }
 
 export async function uploadText(text:string){
-    return await axios.post(`${serverURL}/`, text, {headers: {
+    return await axios.post(`${serverURL}/texttospeech`, text, {headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
     }})
